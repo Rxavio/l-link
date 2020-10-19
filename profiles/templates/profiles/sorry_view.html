@@ -1,0 +1,15 @@
+{% extends 'profiles/base.html' %}
+{% load static %}
+{% block content %}
+<center>
+<div class="col-lg-8">
+            <h3>Sorry Dear, Booking {{booking}} Already taken</h3>
+            <a href="{% url 'profiles:TableListView'%}" class="btn btn-warning">Try Again</a>
+        </div>
+        </center>
+    </form>
+
+</div>
+<br><br><br><br><br><br><br><br>
+
+{% endblock content %}

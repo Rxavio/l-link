@@ -1,0 +1,61 @@
+{% extends 'profiles/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+My profile
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row m-y-2 thumbnail2">
+        <hr>
+      
+        <div class="col-lg-8 push-lg-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Update Account</a>
+                </li>
+            </ul>
+            <div class="tab-content p-b-3">
+
+                <div class="tab-pane active" id="edit">
+                    <h5 class="m-y-2">User: {{ profile.user }}</h5>   &#x21B3;
+
+                 
+                 <div class="article-form">                        
+                    <form action="" method="POST"enctype='multipart/form-data'>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <!-- <input type="submit" class="btn btn-primary" value="Save Changes"> -->
+                            <button type="submit">Save Changes</button>
+                          
+                        </form>
+                    </div>
+                   <br> <br> <br>
+            
+
+                </div>
+                
+                {{form.errors}}
+            </div>
+        </div>
+        
+        <div class="col-lg-4 pull-lg-8 text-xs-center">
+            <img src="{{profile.image.url}}" class="rounded mx-auto d-block img-thumbnail2" alt="image"style=" height:220px; width:100%;"> 
+            <img src="{{profile.image2.url}}" class="rounded mx-auto d-block img-thumbnail2" alt="image"style=" height:220px; width:100%;"> 
+            <img src="{{profile.image3.url}}" class="rounded mx-auto d-block img-thumbnail2" alt="image"style=" height:220px; width:100%;"> 
+              </div>
+        </div>
+
+    </div>
+<!-- </div>
+<hr> -->
+
+<br> <br> <br> 
+
+
+
+
+{% endblock content %}

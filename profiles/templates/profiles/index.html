@@ -1,0 +1,526 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Stay4one - Mainpage</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleaapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+
+  <link href="{% static 'css/nav.css' %}" rel="stylesheet">
+   <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <nav class="navbar fixed-top navbar-light white scrolling-navbar">
+
+    <!-- FOR ALL SCREENS EXCEPT SMALL -->
+    <div class="nav-container-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
+
+      
+        <!-- Navbar brand -->
+        <a class="navbar-brand text-dark" href="#home">Stay4one</a>
+    
+        <ul class="nav nav-items text-dark">
+      
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="#about">About Us</a>
+        </li>
+    
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="#how-it-works">How It Works</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#services">Services</a>
+      </li>
+      
+    
+        <!-- Dropdown -->
+       
+    
+        </ul>
+    
+    <!-- END NAV SEARCH -->
+    
+    </div>
+    
+    
+    <!-- Dropdown -->
+   
+    {% if user.is_authenticated %}
+    <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
+        <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+       Hi, {{ request.user|capfirst }}
+        </a>
+        <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
+      <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Get Started
+      </a>
+      <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'profiles:register' %}">Register</a>
+          <a class="dropdown-item" href="{% url 'profiles:login' %}">Login</a>
+      </div>
+  </div>
+  {% endif %}
+
+
+
+    
+    
+    <!-- END FOR ALL SCREENS EXCEPT SMALL -->
+    
+    
+    
+    <!-- FOR SMALL SCREENS -->
+    <div class="nav-container-2 d-flex d-lg-none d-md-none d-sm-flex d-flex">
+    
+    <div class="d-flex justify-content-start">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    
+     <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+
+      
+            <!-- Navbar brand -->
+        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Stay4one</a>
+    
+        <!-- Links -->
+        <ul class="nav nav-items text-dark">
+            <li class="nav-item active">
+                <a class="nav-link text-dark" href="#about">About Us</a>
+            </li>
+        </ul>
+    
+            <!-- Links -->
+        <ul class="nav nav-items text-dark">
+            <li class="nav-item active">
+                <a class="nav-link text-dark" href="#how-it-works">How  It Works</a>
+            </li>
+        </ul>
+
+        <ul class="nav nav-items text-dark">
+          <li class="nav-item active">
+              <a class="nav-link text-dark" href="#services">Services</a>
+          </li>
+      </ul>
+    
+           
+        
+        <!-- Dropdown -->
+        {% if user.is_authenticated %}
+        <div class="nav-item dropdown">
+            <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Hi, {{ request.user|capfirst }}
+            </a>
+            <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="nav-item dropdown">
+          <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Get Started
+          </a>
+          <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'profiles:register' %}">Register</a>
+              <a class="dropdown-item" href="{% url 'profiles:login' %}">Login</a>
+          </div>
+      </div>
+      {% endif %}
+        
+    
+      </div>  <!-- Collapsible content -->
+    
+    
+    </div><!-- END FOR SMALL SCREENS -->
+    
+    </nav>
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="home" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
+          <h1>Welcome to Stay4one</h1>
+          <h2>This platform is here to help you, all informations about us are below, so let's get start  </h2>
+          {% if user.is_authenticated %}
+          <a href="{% url 'profiles:home-view' %}" class="btn-get-started scrollto">Back</a>
+          {% else %}
+          <a href="{% url 'profiles:register' %}" class="btn-get-started scrollto">Get Started</a>
+          {% endif %}
+
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'img/wilderness.svg' %}" class="img-fluid animated" alt="">
+          
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2 class="title">About Us</h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-star"></i></div>
+              <h4 class="title"><a href="">Who We Are</a></h4>
+              <p class="description">Stay4one platform founded in 2020,
+                We are independent company platform that specialized in delivering professional services
+                in organizing people's meetings for great purpose to the public by a team of mature,professional and energetic people.
+
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-star"></i></div>
+              <h4 class="title"><a href="">Our Mission</a></h4>
+              <p class="description">
+                We dedicate our efforts and excellence in providing free and affordable services in the 
+                commitment of organizing people's meetings for a great purpose such as one by one and 
+                seminars for couples to have an open talk about our society's problems.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-star"></i></div>
+              <h4 class="title"><a href="">Our vision</a></h4>
+              <p class="description">We are committed as stay4One platform to deliver on time excellent 
+                free and always affordable services to all our clients in any circumstances of climate or 
+                any else we can,we are and always be honored to serve everyone in an equal way as long as 
+                we are building a great future society and families welfare. 
+                 </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-star"></i></div>
+              <h4 class="title"><a href="">Our values</a></h4>
+              <!-- <p class="description">We are committed for delivering excellent service to all our clients,To give you advice and Assistance to help you in relationship  </p> -->
+            
+              <p class="description">-Going beyond expectations<br>
+                -Social great impact and benefits<br>
+                -creativity on social benefits purpose<br>
+              - Self-reliance and entrepreneurship<br>
+              -Self-Sustainability and beyond
+            </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    
+    </section><!-- End About Section -->
+
+    <!-- ======= how it works Section ======= -->
+    <section id="how-it-works" class="services section-bg">
+      <div class="container">
+
+        <div class="row justify-content-between">
+
+          <div class="col-lg-8 d-flex align-items-center justify-content-center about-img">
+            {% for obj in video %}
+            <video class="video-fluid" controls>
+                <source src="{{obj.video.url}}" type="video/mp4"/>
+            </video>    
+             {% endfor %}
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0">
+            <h2 class="title" data-aos="fade-up">How it Works</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+              We produced this video to help you, if you still wonder how this platform works
+              watch this video on left side, and don't hesitate to join us whenever you are ready
+              it is very easy and simple to be one us. carefully watch the video and then you will 
+              follow all steps to have all access on our platform, pleasure to have you here.
+            </p>
+           
+          </div>
+        </div>
+
+      </div>
+     
+    </section><!-- End how it works Section -->
+
+     <!-- ======= services Section ======= -->
+     <section id="services" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2 class="title">Our Services</h2>
+          <p></p>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <!-- <div class="icon"><i class="fa fa-star"></i></div> -->
+              <h4 class="title"><a href="">Meeting Bookings</a></h4>
+              <p class="description">
+            We as Stay4one platform are committed to make meeting bookings for you in order to make
+            it on time and professionally by having a nice meeting place for you and your chosen one.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <!-- <div class="icon"><i class="fa fa-star"></i></div> -->
+              <h4 class="title"><a href="">Assistance</a></h4>
+              <p class="description">
+                We dedicate our efforts and excellence in providing privacy protection to all our clients such 
+                as protecting your names,contacts,id and your address in order to have your own choice in 
+                providing yourself all those informations to the one you have got as your choice to talk to.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <!-- <div class="icon"><i class="fa fa-star"></i></div> -->
+              <h4 class="title"><a href="">Advices</a></h4>
+              <p class="description">
+                We are and always committed to organize different couple's Seminars just to have an open talk
+                about couple's issues,questions and teaching conclusions by providing ourselves with cabinet to 
+                receive one couple by one to solve their private issues.
+               </p>
+            </div>
+
+        </div>
+     
+
+
+      </div>
+    
+    </section><!-- End services Section -->
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="fade-up">
+      <h2 class="title">Team Members</h2>
+      <!-- <p>Meet Our team for any support</p> -->
+      <p></p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="member">
+          <img src="{% static 'images/edwin.jpg' %}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Chris Brown</h4>
+              <span>CEO</span>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="member">
+          <img src="{% static 'images/edwin.jpg' %}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Chris Rock</h4>
+              <span>Product Manager</span>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="member">
+          <img src="{% static 'images/edwin.jpg' %}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Chris Martin</h4>
+              <span>CTO</span>
+            </div>
+             <!--  -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="member">
+          <img src="{% static 'images/edwin.jpg' %}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Chris Tucker</h4>
+              <span>Accountant</span>
+            </div>
+             <!--  -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Team Section -->
+ 
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+     <!-- ======= subscribe ======= -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact" data-aos="fade-up" data-aos-delay="100">
+            <h3>Stay4one</h3>
+            <p>
+              Kn Street 278 <br>
+              Kigali<br>
+              Rwanda <br>
+              <strong>Phone:</strong> +25078888888<br>
+              <strong>Email:</strong>credosPatrick@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200">
+            <h4>Some useful Terms</h4>
+            <ul>
+              <li><a href="#home"><i class="icofont-simple-up"></i>Home</a></li>
+              <li><a href="#about"><i class="icofont-simple-up"></i>About us</a></li>
+              <li><a href="#how-it-works"><i class="icofont-simple-up"></i>How it Works</a></li>
+              <li><a href="#services"><i class="icofont-simple-up"></i>Services</a></li>
+              <li><a href="#"><i class="icofont-simple-up"></i>Terms and Conditions</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="icofont-simple-up"></i>Booking</li>
+              <li><i class="icofont-simple-up"></i>Advices</li>
+              <li><i class="icofont-simple-up"></i>Assistance</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="400">
+            <h4>Our Social Networks</h4>
+            <p>For more updates follow us on our social networks like twitter,facebbok,instagram and more videos on our youtube Channel.</p>
+            <div class="social-links mt-3">
+              <a href=""><i class="icofont-twitter"></i></a>
+              <a href=""><i class="icofont-facebook"></i></a>
+              <a href=""><i class="icofont-instagram"></i></a>
+              <a href=""><i class="icofont-linkedin"></i></a>
+              <a href=""><i class="icofont-youtube"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4 copyrightdiv">
+      <div class="copyright">
+        &copy; <strong><span>Stay4one</span></strong>. All Rights Reserved Designed by <a href="#"> Xv</a>
+      </div>
+      <!-- <div class="credits"></div>
+        Designed by <a href="#"> XO</a>
+      </div> -->
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  
+
+
+  <!-- <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script> -->
+
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/aos.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+  <!-- <script type="text/javascript" src="{% static 'js/parallax.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script> -->
+
+ 
+
+
+
+
+
+
+
+
+</body>
+
+</html>
