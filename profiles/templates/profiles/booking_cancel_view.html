@@ -7,8 +7,8 @@
         {% csrf_token %}
             <h3>Are you sure you want to cancel this booking</h3>
             <h4>{{booking}}</h4>
-            <button type="submit"class="btn btn-info">Yes,Sure</button>
-            <a href="{% url 'profiles:BookingListView'%}"class="btn btn-warning">No</a>
+            <button type="submit"class="btnbook">Yes,Sure</button>
+            <a href="{% url 'profiles:BookingListView'%}"class="btnback">No</a>
         </div>
         </center>
     </form>

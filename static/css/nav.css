@@ -219,6 +219,57 @@ h2.title{
   background-color: rgb(124, 46, 46)
 } */
 
+.btnbook{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  background: #3abdd1;
+  border: 1px solid  #3abdd1;
+}
+
+.btnback{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #3abdd1;
+  background:#e1e1e1;
+  /* border: 1px solid  #767a7a; */
+  /* text-transform: uppercase; */
+
+}
+
+.cancelbook{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin: 10px;
+  background: #3abdd1;
+  border: 1px solid  #3abdd1;
+  outline: none;
+}
+.cancelbook a{
+  color: #ffffff;  
+}
+
+.cancelbook a:hover{
+  color: #e2dfdf;  
+}
+
 
 
 
