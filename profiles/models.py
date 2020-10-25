@@ -40,7 +40,6 @@ class ProfileManager(models.Manager):
         profiles = Profile.objects.all().exclude(user=me)
         return profiles
 def mainimage(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     profile_pic_name = 'user_{0}/profile.jpg'.format(instance.user.id)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 
@@ -50,7 +49,6 @@ def mainimage(instance, filename):
     return profile_pic_name  
 
 def secondimage(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     profile_pic_name = 'user_{0}/profile2.jpg'.format(instance.user.id)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 
@@ -60,7 +58,6 @@ def secondimage(instance, filename):
     return profile_pic_name 
 
 def thirdimage(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     profile_pic_name = 'user_{0}/profile3.jpg'.format(instance.user.id)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 
