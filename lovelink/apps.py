@@ -1,5 +1,5 @@
-from suit.apps import DjangoSuitConfig
+# from suit.apps import DjangoSuitConfig
 
 
-class SuitConfig(DjangoSuitConfig):
-    layout = 'horizontal'
+# class SuitConfig(DjangoSuitConfig):
+#     layout = 'horizontal'

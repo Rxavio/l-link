@@ -39,32 +39,7 @@ class ProfileManager(models.Manager):
     def get_all_profiles(self, me):
         profiles = Profile.objects.all().exclude(user=me)
         return profiles
-def mainimage(instance, filename):
-    profile_pic_name = 'user_{0}/profile.jpg'.format(instance.user.id)
-    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
 
-    if os.path.exists(full_path):
-    	os.remove(full_path)
-
-    return profile_pic_name  
-
-def secondimage(instance, filename):
-    profile_pic_name = 'user_{0}/profile2.jpg'.format(instance.user.id)
-    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
-
-    if os.path.exists(full_path):
-    	os.remove(full_path)
-
-    return profile_pic_name 
-
-def thirdimage(instance, filename):
-    profile_pic_name = 'user_{0}/profile3.jpg'.format(instance.user.id)
-    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
-
-    if os.path.exists(full_path):
-    	os.remove(full_path)
-
-    return profile_pic_name  
 
 GENDER_CHOICES = (
     ('male', 'male'),
@@ -78,9 +53,9 @@ class Profile(models.Model):
     bio = models.TextField(default="no bio...", max_length=300)
     email = models.EmailField(max_length=200, blank=False, null= True, unique=True)
     address= models.CharField(max_length=200, blank=False)
-    image = models.ImageField(default='default.JPG', upload_to=mainimage)
-    image2 = models.ImageField(default='default.JPG', upload_to=secondimage)
-    image3 = models.ImageField(default='default.JPG', upload_to=thirdimage)
+    image = models.ImageField(default='default.JPG', upload_to='upload_images/')
+    image2 = models.ImageField(default='default.JPG', upload_to='upload_images/')
+    image3 = models.ImageField(default='default.JPG', upload_to='upload_images/')
     friends = models.ManyToManyField(User, blank=True, related_name='friends')
     slug = models.SlugField(unique=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
