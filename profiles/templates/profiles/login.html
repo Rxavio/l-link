@@ -206,9 +206,19 @@ border-radius: 5px;
 
 				</div>
 
-				{% for message in messages %}
-					<p id="messages">{{message}}</p>
-				{% endfor %}			
+				{#% for message in messages %#}
+					<!-- <p id="messages">{{message}}</p> -->
+				{#% endfor %#}
+				
+			{% if messages %}
+			{% for message in messages %}
+				<center><div class="alert {{ message.tags }} m-2 messages" id="msg" role="alert">
+					{{ message }}
+				</div>
+				</center>
+			{% endfor %}
+		   {% endif %} 
+
 		
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
