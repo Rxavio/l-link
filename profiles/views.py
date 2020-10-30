@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Relationship
 from .forms import ProfileModelForm
-from django.views.generic import ListView, DetailView, DeleteView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -15,7 +15,7 @@ from .forms import CreateUserForm
 
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View
-from .models import Table, Booking
+from .models import Table, Booking, Contact
 from .forms import AvailabilityForm
 from profiles.booking_functions.availability import check_availability
 from django.urls import reverse, reverse_lazy
@@ -24,6 +24,9 @@ from .models import Video
 
 from django.contrib.auth.models import Group
 from .decorators import unauthenticated_user, allowed_users, admin_only
+
+from django.conf import settings
+
 
 # Create your views here.
 
@@ -167,7 +170,6 @@ def my_profile_view(request):
         'form': form,
         'confirm': confirm,
     }
-
     return render(request, 'profiles/my_account.html', context)
 
 
@@ -471,6 +473,19 @@ class PasswordResetDone(PasswordResetDoneView):
     template_name = 'profiles/change_password_done.html'     
         
  
-           
+class ContactView(LoginRequiredMixin,CreateView):
+    model = Contact
+    template_name = 'profiles/contact.html' 
+    success_url= reverse_lazy('profiles:message-sent')
+    fields = ['subject', 'message']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form) 
+    
+def MessageSent(request):
+   
+    return render(request, 'profiles/message_sent.html')     
+                 
         
 

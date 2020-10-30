@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Remarkable - Mainpage</title>
+  <title>Remarkable - Contact</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -43,27 +43,13 @@
 
       
         <!-- Navbar brand -->
-        <a class="navbar-brand text-dark" href="#home">Remarkable</a>
-         <!-- <a class="navbar-brand text-dark" href="#home"><img src="{% static 'images/logo.png' %}"></a> -->
+        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Remarkable</a>
     
         <ul class="nav nav-items text-dark">
       
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="#about">About Us</a>
-        </li>
-    
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="#how-it-works">How It Works</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#services">Services</a>
-      </li>
-      {% if user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
-    </li>  
-    {% endif %} 
+    </li>   
         <!-- Dropdown -->
        
     
@@ -125,31 +111,13 @@
         <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Remarkable</a>
     
         <!-- Links -->
-        <ul class="nav nav-items text-dark">
-            <li class="nav-item active">
-                <a class="nav-link text-dark" href="#about">About Us</a>
-            </li>
-        </ul>
-    
-            <!-- Links -->
-        <ul class="nav nav-items text-dark">
-            <li class="nav-item active">
-                <a class="nav-link text-dark" href="#how-it-works">How  It Works</a>
-            </li>
-        </ul>
+       
 
-        <ul class="nav nav-items text-dark">
-          <li class="nav-item active">
-              <a class="nav-link text-dark" href="#services">Services</a>
-          </li>
-      </ul>
-      {% if user.is_authenticated %}
       <ul class="nav nav-items text-dark">
         <li class="nav-item active">
             <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
         </li>
     </ul>
-    {% endif %}
     
            
         
@@ -187,179 +155,14 @@
     </nav>
 
 
-  <!-- ======= Hero Section ======= -->
-  <section id="home" class="d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
-          <h1>Welcome to Remarkable</h1>
-          <h2>This platform is here to help you, all informations about us are below, so let's get start  </h2>
-          {% if user.is_authenticated %}
-          <a href="{% url 'profiles:home-view' %}" class="btn-get-started scrollto">Back</a>
-          {% else %}
-          <a href="{% url 'profiles:register' %}" class="btn-get-started scrollto">Get Started</a>
-          {% endif %}
 
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="{% static 'img/wilderness.svg' %}" class="img-fluid animated" alt="">
-          
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2 class="title">About Us</h2>
-          <p></p>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="fa fa-star"></i></div>
-              <h4 class="title"><a href="">Who We Are</a></h4>
-              <p class="description">Remarkable platform founded in 2020,
-                We are independent company platform that specialized in delivering professional services
-                in organizing people's meetings for great purpose to the public by a team of mature,professional and energetic people.
-
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="fa fa-star"></i></div>
-              <h4 class="title"><a href="">Our Mission</a></h4>
-              <p class="description">
-                We dedicate our efforts and excellence in providing free and affordable services in the 
-                commitment of organizing people's meetings for a great purpose such as one by one and 
-                seminars for couples to have an open talk about our society's problems.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="fa fa-star"></i></div>
-              <h4 class="title"><a href="">Our vision</a></h4>
-              <p class="description">We are committed as Remarkable platform to deliver on time excellent 
-                free and always affordable services to all our clients in any circumstances of climate or 
-                any else we can,we are and always be honored to serve everyone in an equal way as long as 
-                we are building a great future society and families welfare. 
-                 </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="fa fa-star"></i></div>
-              <h4 class="title"><a href="">Our values</a></h4>
-              <!-- <p class="description">We are committed for delivering excellent service to all our clients,To give you advice and Assistance to help you in relationship  </p> -->
-            
-              <p class="description">-Going beyond expectations<br>
-                -Social great impact and benefits<br>
-                -creativity on social benefits purpose<br>
-              - Self-reliance and entrepreneurship<br>
-              -Self-Sustainability and beyond
-            </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    
-    </section><!-- End About Section -->
-
-    <!-- ======= how it works Section ======= -->
-    <section id="how-it-works" class="services section-bg">
-      <div class="container">
-
-        <div class="row justify-content-between">
-
-          <div class="col-lg-8 d-flex align-items-center justify-content-center about-img">
-            {% for obj in video %}
-            <video class="video-fluid" controls>
-                <source src="{{obj.video.url}}" type="video/mp4"/>
-            </video>    
-             {% endfor %}
-          </div>
-
-          <div class="col-lg-4 pt-4 pt-lg-0">
-            <h2 class="title" data-aos="fade-up">How it Works</h2>
-            <p data-aos="fade-up" data-aos-delay="100">
-              We produced this video to help you, if you still wonder how this platform works
-              watch this video, and don't hesitate to join us whenever you are ready
-              it is very easy and simple to be one us. carefully watch the video and then you will 
-              follow all steps to have all access on our platform, pleasure to have you here.
-            </p>
-           
-          </div>
-        </div>
-
-      </div>
-     
-    </section><!-- End how it works Section -->
-
-     <!-- ======= services Section ======= -->
-     <section id="services" class="about">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2 class="title">Our Services</h2>
-          <p></p>
-        </div>
-        
-        <div class="row">
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <h4 class="title"><a href="">Meeting Bookings</a></h4>
-              <p class="description">
-            We as Remarkable platform are committed to make meeting bookings for you in order to make
-            it on time and professionally by having a nice meeting place for you and your chosen one.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <h4 class="title"><a href="">Assistance</a></h4>
-              <p class="description">
-                We dedicate our efforts and excellence in providing privacy protection to all our clients such 
-                as protecting your names,contacts,id and your address in order to have your own choice in 
-                providing yourself all those informations to the one you have got as your choice to talk to.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <h4 class="title"><a href="">Advices</a></h4>
-              <p class="description">
-                We are and always committed to organize different couple's Seminars just to have an open talk
-                about couple's issues,questions and teaching conclusions by providing ourselves with cabinet to 
-                receive one couple by one to solve their private issues.
-               </p>
-            </div>
-
-        </div>
-     
-
-
-      </div>
-    
-    </section><!-- End services Section -->
+  
 
     <!-- ======= Contact Us Section ======= -->
-    <!-- <section id="contact" class="contact">
+    <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -381,24 +184,29 @@
               {% csrf_token %}
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
+                <input type="text" class="form-control" name="subject" id="subject" required="true" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-                <div class="validate"></div>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" required="true" data-msg="Please write something for us"></textarea>
+               
               </div>
-      
+              {#% if user.is_authenticated %#}
               <div class="text-center"><button type="submit">Send Message</button></div>
+              {#% else %#}
+              <!-- <div class="text-center">Click <a class="" href="">Login</a> Link To be able to send your message</div>
+               -->
+              {#% endif %#}
+            
             </form>
+
+           
           </div>
 
         </div>
 
       </div>
-    </section> -->
-    <!-- End Contact Us Section -->
+    </section><!-- End Contact Us Section -->
 
 
  
@@ -450,6 +258,7 @@
               <li><a href="#about"><i class="icofont-simple-up"></i>About us</a></li>
               <li><a href="#how-it-works"><i class="icofont-simple-up"></i>How it Works</a></li>
               <li><a href="#services"><i class="icofont-simple-up"></i>Services</a></li>
+              <li><a href="#contact"><i class="icofont-simple-up"></i>Contact Us</a></li>
               <li><a href="#"><i class="icofont-simple-up"></i>Terms and Conditions</a></li>
             </ul>
           </div>

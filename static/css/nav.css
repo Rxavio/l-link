@@ -119,6 +119,14 @@ h2.title{
   border: 1px solid  #3abdd1;
   text-transform: uppercase;
 }
+
+/* a img{
+ height: 50px; 
+ width: 100%;
+} */
+.mainbtn:hover{
+  color: #e2dfdf;  
+}
 /* .mainbtn:focus {
   box-shadow: none !important;
   outline: 0px !important;

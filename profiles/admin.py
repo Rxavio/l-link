@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Profile, Relationship, Table, Booking, Video
+from .models import Profile, Relationship, Table, Booking, Video, Contact
 from django.contrib.auth.models import Group
 # Register your models here.
 
 # admin header and title modification
 admin.site.site_header = "Admin DashBoard"
-admin.site.site_title = "Stay4One"
-admin.site.index_title = 'Stay4One'
+admin.site.site_title = "Remarkable"
+admin.site.index_title = 'Remarkable'
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display=('user','first_name','last_name','email','slug','address','created','updated','nationalid','telephone','age')
@@ -49,4 +49,14 @@ class VideoAdmin(admin.ModelAdmin):
     list_filter = ('caption',) 
    
     
-admin.site.register(Video, VideoAdmin)     
+admin.site.register(Video, VideoAdmin)   
+
+
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display=('subject','message','author','date_posted')
+    list_filter = ('subject',) 
+   
+    
+admin.site.register(Contact, ContactAdmin)    

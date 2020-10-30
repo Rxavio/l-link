@@ -3,7 +3,8 @@ from .views import (
     home,
     index,
     SorryView,
-    # ChangePassword,
+    MessageSent,
+    ContactView,
     my_profile_view, 
     AvailableProfileListView,
     invites_received_view, 
@@ -24,13 +25,14 @@ from .views import (
 )
 from django.conf.urls import include, url
 from . import views
-from .views import TableListView, BookingListView, TableDetailView, CancelBookingView
+from .views import TableListView, BookingListView, TableDetailView, CancelBookingView, ContactView
 
 app_name = 'profiles'
 
 urlpatterns = [
     path('', index, name='index-view'),
     path('sorry/', SorryView, name='Sorry-view'),
+    path('message-sent/', MessageSent, name='message-sent'),
     path('home/', home.as_view(), name='home-view'),
     path('register/', views.registerPage, name="register"),
 	path('login/', views.loginPage, name="login"),  
@@ -51,6 +53,9 @@ urlpatterns = [
     path('table-list/', TableListView, name='TableListView'),
     path('booking-list/', BookingListView.as_view(), name='BookingListView'),
     path('booking/cancel/<pk>', CancelBookingView.as_view(), name='CancelBookingView'),
+    
+    # path('contact/', ContactView, name='contact'),
+    path('contact/', ContactView.as_view(), name='contact'),
     
     
     

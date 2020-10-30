@@ -6,13 +6,13 @@
 
       
         <!-- Navbar brand -->
-        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">OneLink</a>
+        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Remarkable</a>
     
         <ul class="nav nav-items text-dark">
 
-        <!-- <li class="nav-item">
-            <a class="nav-link text-dark" href="{% url 'profiles:index-view' %}">About Us</a>
-        </li> -->
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
+        </li>
     
         <!-- <li class="nav-item">
             <a class="nav-link text-dark" href="{% url 'profiles:index-view' %}">How It Works</a>
@@ -48,7 +48,7 @@
     <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
         <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">
+        <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">      
         </a>
         <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="">{{ request.user|capfirst }}</a>
@@ -90,15 +90,15 @@
 
       
             <!-- Navbar brand -->
-        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">OneLink</a>
+        <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Remarkable</a>
     
         <!-- Links -->
-        <!-- <ul class="nav nav-items text-dark">
+         <ul class="nav nav-items text-dark">
             <li class="nav-item active">
-                <a class="nav-link text-dark" href="{% url 'profiles:index-view' %}">About Us</a>
+                <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
             </li>
         </ul>
-     -->
+  
             <!-- Links -->
         <!-- <ul class="nav nav-items text-dark">
             <li class="nav-item active">
@@ -127,7 +127,7 @@
         <div class="nav-item dropdown">
             <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">
+            <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">      
             </a>
             <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="">{{ request.user|capfirst }}</a>

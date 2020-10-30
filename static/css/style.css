@@ -237,8 +237,9 @@
     margin:0 5px;
 }
 .team_social li a,.team_social li button {
-    color:#fff;
-    background:#363636;
+    color:#363636;
+    background:   #fff;
+    border: 1px solid  #3abdd1;
     display:block;
     height: 35px;
     text-align: center;

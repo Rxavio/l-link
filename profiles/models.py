@@ -11,6 +11,7 @@ from PIL import Image
 from PIL import Image
 from django.conf import settings
 import os
+from django.utils import timezone
 
 
 class ProfileManager(models.Manager):
@@ -39,7 +40,49 @@ class ProfileManager(models.Manager):
     def get_all_profiles(self, me):
         profiles = Profile.objects.all().exclude(user=me)
         return profiles
+    
+# def upload_images_path(self, filename):
+# 	return f'upload_images/{self.pk}/profile1.PNG'
 
+def default_image():
+	return "default_images/profile1.PNG"
+
+def upload_images_path(instance, filename):
+    profile_pic_name = 'user_{0}/profile1.PNG'.format(instance.user.id)
+    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name)
+
+    if os.path.exists(full_path):
+    	os.remove(full_path)
+
+    return profile_pic_name
+
+
+def default_image2():
+	return "default_images/profile2.PNG"
+
+def upload_images_path2(instance, filename):
+    profile_pic_name2 = 'user_{0}/profile2.PNG'.format(instance.user.id)
+    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name2)
+
+    if os.path.exists(full_path):
+    	os.remove(full_path)
+
+    return profile_pic_name2
+
+
+
+def default_image3():
+	return "default_images/profile3.PNG"
+
+def upload_images_path3(instance, filename):
+    profile_pic_name3 = 'user_{0}/profile3.PNG'.format(instance.user.id)
+    full_path = os.path.join(settings.MEDIA_ROOT, profile_pic_name3)
+
+    if os.path.exists(full_path):
+    	os.remove(full_path)
+
+    return profile_pic_name3
+   
 
 GENDER_CHOICES = (
     ('male', 'male'),
@@ -53,9 +96,9 @@ class Profile(models.Model):
     bio = models.TextField(default="no bio...", max_length=300)
     email = models.EmailField(max_length=200, blank=False, null= True, unique=True)
     address= models.CharField(max_length=200, blank=False)
-    image = models.ImageField(default='upload_images/profile1.PNG', upload_to='upload_images')
-    image2 = models.ImageField(default='upload_images/profile2.PNG', upload_to='upload_images')
-    image3 = models.ImageField(default='upload_images/profile3.PNG', upload_to='upload_images')
+    image = models.ImageField(default=default_image, upload_to=upload_images_path)
+    image2 =  models.ImageField(default=default_image2, upload_to=upload_images_path2)
+    image3 =  models.ImageField(default=default_image3, upload_to=upload_images_path3)
     friends = models.ManyToManyField(User, blank=True, related_name='friends')
     slug = models.SlugField(unique=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
@@ -67,7 +110,7 @@ class Profile(models.Model):
     birth_date = models.DateField(null=True,blank=True)
 
     objects = ProfileManager()
-
+    
     class Meta:
         ordering = ('-created',)
 
@@ -83,16 +126,7 @@ class Profile(models.Model):
     def get_friends_no(self):
         return self.friends.all().count()
     
-    # def save(self, *args, **kwargs):
-    #         super(Profile, self).save(*args, **kwargs)
-
-    #         img = Image.open(self.image2.path)
-
-    #         if img.height > 300 or img.width > 300:
-    #             output_size = (300, 300)
-    #             img.thumbnail(output_size)
-    #             img.save(self.image2.path)
-    
+   
        
        
 
@@ -204,7 +238,15 @@ class Video(models.Model):
     video = models.FileField(upload_to="video/%y")
     
     def __str__(self):
-        return self.caption    
+        return self.caption
     
-  
+    
+class Contact(models.Model):
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    author = models.ForeignKey(User,null=True, blank=True, on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.subject  
 

@@ -1,7 +1,8 @@
 from django import forms
-from .models import Profile,Booking
+from .models import Profile,Booking, Contact
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 
 
 class ProfileModelForm(forms.ModelForm):
@@ -19,4 +20,9 @@ class CreateUserForm(UserCreationForm):
 class AvailabilityForm(forms.Form):
     check_in = forms.DateTimeField(required=True, input_formats=["%Y-%m-%dT%H:%M", ])
     check_out = forms.DateTimeField(required=True, input_formats=["%Y-%m-%dT%H:%M", ])
+          
+class ContactForm(ModelForm):
+	class Meta:
+		model = Contact
+		fields = '__all__'          
           
