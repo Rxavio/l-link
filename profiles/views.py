@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Relationship
-from .forms import ProfileModelForm
+from .forms import UserUpdateForm, ProfileUpdateForm
 from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
 from django.contrib.auth.models import User
@@ -30,12 +30,27 @@ from django.conf import settings
 
 # Create your views here.
 
-def index(request):
-    video = Video.objects.all()
-    context = {
-        'video': video,   
-    }
-    return render(request, 'profiles/index.html',context)
+# def index(request):
+#     video = Video.objects.all()
+#     context = {
+#         'video': video,   
+#     }
+#     return render(request, 'profiles/index.html',context)
+
+
+class indexView(LoginRequiredMixin,CreateView):
+    model = Contact
+    template_name = 'profiles/index.html' 
+    success_url= reverse_lazy('profiles:message-sent')
+    fields = ['subject', 'message']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form) 
+    
+def MessageSent(request):
+   
+    return render(request, 'profiles/message_sent.html') 
 
 class home(LoginRequiredMixin, ListView):
     model = Profile
@@ -152,24 +167,47 @@ def logoutUser(request):
 	return redirect('profiles:login')
 
 
+# @login_required(login_url='profiles:login')
+# def my_profile_view(request):
+#     profile = Profile.objects.get(user=request.user)
+#     form = ProfileModelForm(request.POST or None, request.FILES or None, instance=profile)
+#     confirm = False
+
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, f'Your account has been updated!')
+#             confirm = True
+
+#     context = {
+#         'profile': profile,
+#         'form': form,
+#         'confirm': confirm,
+#     }
+#     return render(request, 'profiles/my_account.html', context)
+
 @login_required(login_url='profiles:login')
 def my_profile_view(request):
-    profile = Profile.objects.get(user=request.user)
-    form = ProfileModelForm(request.POST or None, request.FILES or None, instance=profile)
-    confirm = False
-
     if request.method == 'POST':
-        if form.is_valid():
-            form.save()
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
             messages.success(request, f'Your account has been updated!')
-            # return redirect('profile')
-            confirm = True
+            return redirect('profiles:my-profile-view')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'profile': profile,
-        'form': form,
-        'confirm': confirm,
+        'u_form': u_form,
+        'p_form': p_form
     }
+
     return render(request, 'profiles/my_account.html', context)
 
 
@@ -473,19 +511,7 @@ class PasswordResetDone(PasswordResetDoneView):
     template_name = 'profiles/change_password_done.html'     
         
  
-class ContactView(LoginRequiredMixin,CreateView):
-    model = Contact
-    template_name = 'profiles/contact.html' 
-    success_url= reverse_lazy('profiles:message-sent')
-    fields = ['subject', 'message']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form) 
     
-def MessageSent(request):
-   
-    return render(request, 'profiles/message_sent.html')     
                  
         
 

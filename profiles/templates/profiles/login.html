@@ -223,10 +223,11 @@ border-radius: 5px;
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'profiles:register' %}" class="ml-2">SignUp</a>
+	
 					</div>
 
 					<div class="d-flex justify-content-center links">
-						<a href="#" class="ml-2">Forget Password</a>
+						<a href="{% url 'password_reset' %}">Forgot Password?</a>
 					   </div>
 			
 				</div>
@@ -300,7 +301,6 @@ border-radius: 5px;
 			 <a href=""><i class="icofont-twitter"></i></a>
 			 <a href=""><i class="icofont-facebook"></i></a>
 			 <a href=""><i class="icofont-instagram"></i></a>
-			 <a href=""><i class="icofont-linkedin"></i></a>
 			 <a href=""><i class="icofont-youtube"></i></a>
 		   </div>
 		 </div>

@@ -10,9 +10,7 @@
     
         <ul class="nav nav-items text-dark">
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
-        </li>
+      
     
         <!-- <li class="nav-item">
             <a class="nav-link text-dark" href="{% url 'profiles:index-view' %}">How It Works</a>
@@ -48,12 +46,16 @@
     <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
         <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">      
-        </a>
+        <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">     
+        {{ request.user|capfirst }}     
+    </a>
         <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="">{{ request.user|capfirst }}</a>
+          
             <a class="dropdown-item" href="{% url 'profiles:my-profile-view' %}">My Profile</a>
             <a class="dropdown-item" href="{% url 'profiles:ChangePasswordView' %}">Password</a>
+            {% if user.is_staff%}
+            <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
             <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
         </div>
     </div>
@@ -93,11 +95,7 @@
         <a class="navbar-brand text-dark" href="{% url 'profiles:index-view' %}">Remarkable</a>
     
         <!-- Links -->
-         <ul class="nav nav-items text-dark">
-            <li class="nav-item active">
-                <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
-            </li>
-        </ul>
+       
   
             <!-- Links -->
         <!-- <ul class="nav nav-items text-dark">
@@ -127,12 +125,17 @@
         <div class="nav-item dropdown">
             <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">      
+        
+            <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;"> 
+            {{ request.user|capfirst }}     
             </a>
             <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="">{{ request.user|capfirst }}</a>
+              
                 <a class="dropdown-item" href="{% url 'profiles:my-profile-view' %}">My Profile</a>
                 <a class="dropdown-item" href="{% url 'profiles:ChangePasswordView' %}">Password</a>
+                {% if user.is_staff%}
+                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                {% endif %}
                 <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
             </div>
         </div>

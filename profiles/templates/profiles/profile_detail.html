@@ -110,7 +110,7 @@ Account Info
         
                     <div class="text d-flex">
                         
-                <span class="text-primary">{{object.email}}</span>
+                <span class="text-primary">{{profile.user.email}}</span>
                         
                     </div>
                 </div>
@@ -162,7 +162,7 @@ Account Info
                  <!-- START FRIEND FIELD -->
                  <div class="d-flex justify-content-between flex-row my-1" style="width: 100%;">
                     <div class="text d-flex">
-                        <span class='text-dark'>Name of Friend:</span>
+                        <span class='text-dark'>Coupled with:</span>
                     </div>
         
                     <div class="text d-flex">
@@ -436,7 +436,7 @@ Account Info
 
                     {% if object.user in rel_sender and request.user not in object.friends.all %}
                     <a class="fb" href="{% url 'profiles:my-invites-view'%}">Back</a>&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-primary" >Waiting To Approve</button>
+                    <button class="btn btn-primary disabled" >Waiting To Approve</button>
                      {% endif %}
 
                     {% if request.user in object.friends.all %}

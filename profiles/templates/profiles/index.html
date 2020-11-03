@@ -59,11 +59,11 @@
         <li class="nav-item">
           <a class="nav-link text-dark" href="#services">Services</a>
       </li>
-      {% if user.is_authenticated %}
+
       <li class="nav-item">
-        <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
-    </li>  
-    {% endif %} 
+        <a class="nav-link text-dark" href="#contact">Contact Us</a>
+    </li>
+     
         <!-- Dropdown -->
        
     
@@ -80,11 +80,19 @@
     <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
         <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-       Hi, {{ request.user|capfirst }}
+        <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">     
+        {{ request.user|capfirst }}
         </a>
         <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
+          {% if user.is_staff%}
+          <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+          {% endif %}
+          <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
+
         </div>
+        
+      
+
     </div>
     {% else %}
     <div class="navbar-nav dropdown d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
@@ -143,13 +151,13 @@
               <a class="nav-link text-dark" href="#services">Services</a>
           </li>
       </ul>
-      {% if user.is_authenticated %}
+
       <ul class="nav nav-items text-dark">
         <li class="nav-item active">
-            <a class="nav-link text-dark" href="{% url 'profiles:contact' %}">Contact Us</a>
+            <a class="nav-link text-dark" href="#contact">Contact Us</a>
         </li>
     </ul>
-    {% endif %}
+     
     
            
         
@@ -158,9 +166,13 @@
         <div class="nav-item dropdown">
             <a class="nav-link text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            Hi, {{ request.user|capfirst }}
+            <img class="img-circle" src="{{request.user.profile.image.url}}"alt='no image'style=" height:100px; width:100%;">     
+            {{ request.user|capfirst }}
             </a>
             <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+               {% if user.is_staff%}
+                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                {% endif %}
                 <a class="dropdown-item" href="{% url 'profiles:logout' %}">Logout</a>
             </div>
         </div>
@@ -227,7 +239,7 @@
               <div class="icon"><i class="fa fa-star"></i></div>
               <h4 class="title"><a href="">Who We Are</a></h4>
               <p class="description">Remarkable platform founded in 2020,
-                We are independent company platform that specialized in delivering professional services
+                We are independent platform that specialized in delivering professional services
                 in organizing people's meetings for great purpose to the public by a team of mature,professional and energetic people.
 
               </p>
@@ -359,7 +371,7 @@
     </section><!-- End services Section -->
 
     <!-- ======= Contact Us Section ======= -->
-    <!-- <section id="contact" class="contact">
+    <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -381,28 +393,29 @@
               {% csrf_token %}
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
+                <input type="text" class="form-control" name="subject" id="subject" required="true" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-                <div class="validate"></div>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" required="true" data-msg="Please write something for us"></textarea>
+               
               </div>
-      
+              {#% if user.is_authenticated %#}
               <div class="text-center"><button type="submit">Send Message</button></div>
+              {#% else %#}
+              <!-- <div class="text-center">Click <a class="" href="">Login</a> Link To be able to send your message</div>
+               -->
+              {#% endif %#}
+            
             </form>
+
+           
           </div>
 
         </div>
 
       </div>
-    </section> -->
-    <!-- End Contact Us Section -->
-
-
- 
-
+    </section><!-- End Contact Us Section -->
 
   </main><!-- End #main -->
 
@@ -437,7 +450,7 @@
               <div class="phone">
                 <i class="icofont-phone"></i>
               <br> <br>
-                <p>+0250 788 888 888</p>
+                <p>+250 788354979</p>
               </div>
         
             </div>
@@ -450,6 +463,7 @@
               <li><a href="#about"><i class="icofont-simple-up"></i>About us</a></li>
               <li><a href="#how-it-works"><i class="icofont-simple-up"></i>How it Works</a></li>
               <li><a href="#services"><i class="icofont-simple-up"></i>Services</a></li>
+              <li><a href="#contact"><i class="icofont-simple-up"></i>Contact Us</a></li>
               <li><a href="#"><i class="icofont-simple-up"></i>Terms and Conditions</a></li>
             </ul>
           </div>
