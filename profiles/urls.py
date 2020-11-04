@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import ( 
     home,
+    terms,
+    works,
     indexView,
     SorryView,
     MessageSent,
@@ -30,7 +32,8 @@ from .views import TableListView, BookingListView, TableDetailView, CancelBookin
 app_name = 'profiles'
 
 urlpatterns = [
-    # path('', index, name='index-view'),
+    path('terms-conditions/', terms, name='terms-conditions'),
+    path('how-it-works/', works, name='how-it-works'),
     path('', indexView.as_view(), name='index-view'),
     path('sorry/', SorryView, name='Sorry-view'),
     path('message-sent/', MessageSent, name='message-sent'),

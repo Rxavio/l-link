@@ -35,7 +35,7 @@ class BookingAdmin(admin.ModelAdmin):
     list_display_links = ('user','table','check_in','check_out', )
     list_filter = ('check_in',) 
     date_hierarchy = 'check_in'  
-    # search_fields=('table',)
+    # search_fields=('user',)
     
 admin.site.register(Booking, BookingAdmin)
 
@@ -60,3 +60,5 @@ class ContactAdmin(admin.ModelAdmin):
    
     
 admin.site.register(Contact, ContactAdmin)    
+
+

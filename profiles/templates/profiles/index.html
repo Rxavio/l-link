@@ -26,7 +26,7 @@
   <link href="{% static 'css/aos.css' %}" rel="stylesheet">
   <link href="{% static 'css/style2.css' %}" rel="stylesheet">
 
-
+  <link href="{% static 'css/card.css' %}" rel="stylesheet">
   <link href="{% static 'css/nav.css' %}" rel="stylesheet">
    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -204,8 +204,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
-          <h1>Welcome to Remarkable</h1>
-          <h2>This platform is here to help you, all informations about us are below, so let's get start  </h2>
+          <!-- <h1></h1> -->
+          <br>  <br>
+          <h2>we are committed as Remarkable platform to deliver on time different services which are 
+            "Meeting bookings, Assistance and Advices" by our professional team. </h2>
           {% if user.is_authenticated %}
           <a href="{% url 'profiles:home-view' %}" class="btn-get-started scrollto">Back</a>
           {% else %}
@@ -294,30 +296,48 @@
     <!-- ======= how it works Section ======= -->
     <section id="how-it-works" class="services section-bg">
       <div class="container">
-
-        <div class="row justify-content-between">
-
-          <div class="col-lg-8 d-flex align-items-center justify-content-center about-img">
-            {% for obj in video %}
-            <video class="video-fluid" controls>
-                <source src="{{obj.video.url}}" type="video/mp4"/>
-            </video>    
-             {% endfor %}
-          </div>
-
-          <div class="col-lg-4 pt-4 pt-lg-0">
-            <h2 class="title" data-aos="fade-up">How it Works</h2>
-            <p data-aos="fade-up" data-aos-delay="100">
-              We produced this video to help you, if you still wonder how this platform works
-              watch this video, and don't hesitate to join us whenever you are ready
-              it is very easy and simple to be one us. carefully watch the video and then you will 
-              follow all steps to have all access on our platform, pleasure to have you here.
-            </p>
-           
-          </div>
+        <div class="section-title" data-aos="fade-up">
+          <h2 class="title">How It Works and Guidance</h2>
+          <p></p>
         </div>
+        <div class="row">
+          <div class="col-md-9 col-lg-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <a href="{% url 'profiles:how-it-works' %}">  
+            <div class="icon-box">
+        <div class="card"> 
+          <!-- <a href="{% url 'profiles:how-it-works' %}">   -->
+           <div class="card-circle">
+           <h4> 1</h4> 
+           <p>Account</p>
+          </div>
+         <!-- </a> -->
+         </div> 
 
+            <div class="card"> 
+             <!-- <a href="{% url 'profiles:how-it-works' %}">    -->
+           <div class="card-circle">
+           <h4>2</h4> 
+           <p>Profiles</p>
+          </div>
+            <!-- </a> -->
+         </div> 
+
+           <div class="card"> 
+           <!-- <a href="{% url 'profiles:how-it-works' %}">    -->
+           <div class="card-circle">
+           <h4>3</h4> 
+           <p>Booking</p>
+          </div>
+            <!-- </a> -->
+         </div>  
+       
       </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
      
     </section><!-- End how it works Section -->
 
@@ -400,12 +420,12 @@
                 <textarea class="form-control" name="message" rows="10" data-rule="required" required="true" data-msg="Please write something for us"></textarea>
                
               </div>
-              {#% if user.is_authenticated %#}
+              {% if user.is_authenticated %}
               <div class="text-center"><button type="submit">Send Message</button></div>
-              {#% else %#}
-              <!-- <div class="text-center">Click <a class="" href="">Login</a> Link To be able to send your message</div>
-               -->
-              {#% endif %#}
+              {% else %}
+              <div class="text-center"><a class="" href="{% url 'profiles:login' %}">Login</a> to be able to send your message</div>
+              
+              {% endif %}
             
             </form>
 
@@ -464,7 +484,7 @@
               <li><a href="#how-it-works"><i class="icofont-simple-up"></i>How it Works</a></li>
               <li><a href="#services"><i class="icofont-simple-up"></i>Services</a></li>
               <li><a href="#contact"><i class="icofont-simple-up"></i>Contact Us</a></li>
-              <li><a href="#"><i class="icofont-simple-up"></i>Terms and Conditions</a></li>
+              <li><a href="{% url 'profiles:terms-conditions' %}"><i class="icofont-simple-up"></i>Terms and Conditions</a></li>
             </ul>
           </div>
 

@@ -30,15 +30,15 @@ from django.conf import settings
 
 # Create your views here.
 
-# def index(request):
-#     video = Video.objects.all()
-#     context = {
-#         'video': video,   
-#     }
-#     return render(request, 'profiles/index.html',context)
+def terms(request):
+    context = {}
+    return render(request, 'profiles/terms.html',context)
 
+def works(request):
+    context = {}
+    return render(request, 'profiles/works.html',context)
 
-class indexView(LoginRequiredMixin,CreateView):
+class indexView(CreateView):
     model = Contact
     template_name = 'profiles/index.html' 
     success_url= reverse_lazy('profiles:message-sent')

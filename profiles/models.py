@@ -6,12 +6,14 @@ from django.template.defaultfilters import slugify
 from django.db.models import Q
 from django.conf import settings
 from django.urls import reverse_lazy
-from PIL import Image
 # Create your models here.
 from PIL import Image
 from django.conf import settings
 import os
 from django.utils import timezone
+
+
+
 
 
 class ProfileManager(models.Manager):
@@ -108,7 +110,7 @@ class Profile(models.Model):
     age= models.CharField(max_length=2, blank=False)
     gender = models.CharField(max_length=12, default="Your gender", choices=GENDER_CHOICES)
     birth_date = models.DateField(null=True,blank=True)
-
+    last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
     objects = ProfileManager()
     
     class Meta:
@@ -249,4 +251,5 @@ class Contact(models.Model):
     
     def __str__(self):
         return self.subject  
+
 
