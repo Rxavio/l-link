@@ -55,7 +55,7 @@ def MessageSent(request):
 class home(LoginRequiredMixin, ListView):
     model = Profile
     template_name = 'profiles/home.html' 
-    paginate_by = 4
+    paginate_by = 20
 
     def get_queryset(self):
         qs = Profile.objects.get_all_profiles(self.request.user).order_by('-created')
@@ -215,7 +215,7 @@ def my_profile_view(request):
 class AvailableProfileListView(LoginRequiredMixin, ListView):
     model = Profile
     template_name = 'profiles/available-profiles.html'
-    paginate_by = 4
+    paginate_by = 20
   
     def get_queryset(self):
         qs = Profile.objects.get_all_profiles(self.request.user).order_by('-created')

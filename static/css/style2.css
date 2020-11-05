@@ -478,11 +478,42 @@ section {
 }
 
 .section-bg {
-   /* background:  #ecf8fa; */
-   /* box-shadow: 0 7px 12px 0  #3abdd1; */
+
    box-shadow: 7px 7px 7px 7px   #eff8fa;
    border-bottom: 3px solid #fff;
+   /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/banner.jpg') right bottom;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.jpg') right bottom; */
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   z-index: -5;
 }
+
+@media (max-width: 768px) {
+  .section-bg {
+    background-repeat: no-repeat;
+   background-size: none;
+   width: auto;
+   height: auto;
+  }
+  .section-bg:after{
+    display: none;
+  }
+}
+.section-bg:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: url(../images/wave.svg);
+    height: 275px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -5;
+  }
+
 
 .section-title {
   text-align: center;
