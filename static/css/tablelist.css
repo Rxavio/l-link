@@ -85,10 +85,6 @@ table {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-
- 
-
-
 table tr {
   background: #fff;
   border: 1px solid #e1e1e1;
@@ -114,10 +110,7 @@ table tr img{
 @media screen and (max-width: 700px) {
     .post-list{
   width: 100%;
-  
-
 } 
-
   table { 
     border: 0;
     width: 100%
@@ -126,7 +119,6 @@ table tr img{
   table thead { 
     display: none; 
   }
-  
   table tr {
     border-bottom: 3px solid #e1e1e1;
     display: block;
@@ -145,7 +137,52 @@ table tr img{
     float: left;
     text-transform: capitalize;
   }
-  
-
   }
+
+
+
+
+  a{
+    text-decoration: none;
+  
+  }
+
+.grid {
+  text-align: center;
+  margin: 5px;
+  display: block;
+  justify-content: center;
+   margin-left: 10px;
+}
+
+.img-works{
+  width: 100%;
+  height: 400px;
+}
+
+
+.grid-card{
+   width: 450px;
+  margin: 10px;
+  height: wrap;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; 
+    float:left;
+    text-align: center; 
+}
+.grid-card:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .grid-card{
+width: 100%;
+margin: 1px;
+}
+}
+
+
+
+ 
+   
 

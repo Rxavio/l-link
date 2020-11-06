@@ -440,13 +440,8 @@ Account Info
                      {% endif %}
 
                     {% if request.user in object.friends.all %}
-                    <a class="fb" href="{% url 'profiles:all-accepted-view'%}">Back</a>&nbsp;&nbsp;&nbsp;
-                    <form action="{% url 'profiles:remove-friend' %}" method="POST">
-                        {% csrf_token %}
-                       <input type="hidden" name="profile_pk" value={{object.pk}}>
-                       <button type="submit" class="btn btn-primary">End</button>
-                       </form>
-                       {% endif %} 
+                    <a class="fb" href="{% url 'profiles:all-accepted-view'%}">Back</a>&nbsp;&nbsp;&nbsp;                      
+                    {% endif %} 
             </div>  
     
     </div>

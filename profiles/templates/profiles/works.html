@@ -12,11 +12,14 @@ How it works
     .container h3{
         color: #3abdd1;
     }  
-  
+    .container{
+        height: auto;
+        width: 100%; 
+    }
     .card{
         min-height: 100vh;
         height: 100%;
-        width: 80%;
+        width: 100%;
         margin: auto;
         border: 1px solid #e1e1e1;
         padding: 30px;
@@ -30,11 +33,6 @@ How it works
         -ms-border-radius: 15px;
         -o-border-radius: 15px;
     }
-
-    .errorlist{
-        color: red;
-    }
-
     @media screen and (max-width: 768px) {
         .card{
           
@@ -51,10 +49,28 @@ How it works
 <h5>1.Register your account</h5>
     <p>    
 Enter your username, your valid email, password and confirm password.
-    </p>
+
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/register1.png' %}"alt="no image"> 
+    </div>
+    </div> 
+ 
+</div> 
+</p>
+      
 <h5>2.Login with your account Credentials</h5>
 <p>
 To login enter your username and password 
+
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/login.png' %}"alt="no image"> 
+    </div>
+    </div> 
+</div> 
 </p>
 
 <h5>3.Update your profile</h5>
@@ -63,6 +79,29 @@ To login enter your username and password
  fill all required informations and upload the images then save changes<br>
  we are highly recommend you to update your profile with your valid email,phone 
  number and update your profile image with your own image because this will be so useful on this patform.
+ <div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/profile.png' %}"alt="no image"> 
+    </div>
+    </div> 
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/edit1.png' %}"alt="no image">
+    </div>
+    </div> 
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/edit2.png' %}"alt="no image">
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/edit3.png' %}"alt="no image">
+    </div>
+    </div> 
+</div> 
 </p>
 
 <h5>4.Change your Password</h5>
@@ -70,6 +109,14 @@ To login enter your username and password
 On dropdown link under your profile icon click password
 Enter your old password 
 and then enter new password and confirm new password then confirm changes. 
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/changepass.png' %}"alt="no image"> 
+    </div>
+    </div> 
+   
+</div> 
 </p>
 
 
@@ -78,6 +125,13 @@ and then enter new password and confirm new password then confirm changes.
 Under Login button click on Forget password link 
 enter your valid email, click the link on your email,
 enter new password and confirm new password.
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/validreset.png' %}"alt="no image"> 
+    </div>
+    </div> 
+</div> 
 </p>
 
 <h5>6.Logout</h5>
@@ -93,19 +147,61 @@ you did not  send invite to anybody, you did not receive an invite of anybody,
 this mean you are available to everyone on the platform,you can navigate to all Available
 profile, see the details of any profile and send him/her an invite vs you can receive an invite from 
 other profile anytime.
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/availableog.png' %}"alt="no image"> 
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/availabledetails.png' %}"alt="no image"> 
+    </div>
+    </div> 
+    
+</div> 
     </p>
 
     <h5>2.Waiting</h5>
     <p>    
 you've sent an invite to any profile but not response yet
 this profile will be on your waiting profile list and you are not available to other.
-you have to wait this profile respond you or reject invite.
+you have to wait this profile respond you or cancel invite.
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/waiting.png' %}"alt="no image"> 
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/waitingforapprovedetails.png' %}"alt="no image"> 
+    </div>
+    </div> 
+   
+</div> 
  </p>
 
  <h5>3.My invite</h5>
  <p>    
 you've received an invite of other profile, which is on the list on your invite
 you can see the datails of the profile,you can accept this invite and also you can reject this invite.
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/myinvite.png' %}"alt="no image"> 
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/myinvitedetails.png' %}"alt="no image"> 
+    </div>
+    </div> 
+   
+</div> 
 </p>
 
 <h5>4.Coupled</h5>
@@ -114,6 +210,20 @@ After some hours,minutes or seconds the invite you sent to any profile got accep
 or after accepting the invite of other profile,
 this profile is on coupled list,you can view the details,you can end the relationship with this profile 
 and the main important you can do booking. 
+<div class="grid">               
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/coupled.png' %}"alt="no image"> 
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/accepteddetails.png' %}"alt="no image"> 
+    </div>
+    </div> 
+   
+</div> 
 </p>
 
 
@@ -125,6 +235,31 @@ Navigate to the list of table where you can choose one table and book the free h
 Note: <b>Email</b> and <b>Telephone Number</b> are so required to be in touch with you, we are highly recommend you to update
 your profile informations with your valid Email and Telephone number.
 To arrange the meeting we will always call the coupled profiles and ask them what they wish.
+<div class="grid">   
+    
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/table2.png' %}"alt="no image"> 
+    </div>
+    </div> 
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/bookingd.png' %}"alt="no image"> 
+    </div>
+    </div> 
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/bookinghourd.png' %}"alt="no image">
+    </div>
+    </div> 
+
+    <div class="grid-card">
+        <div>
+            <img class="img-works"src="{% static 'images/yourbooking.png' %}"alt="no image">
+    </div>
+    </div> 
+    
+</div> 
 </p>
 
 
