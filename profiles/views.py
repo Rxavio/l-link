@@ -64,7 +64,8 @@ class home(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        #  user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Relationship.objects.all()
         rel_s = Relationship.objects.all()
@@ -131,10 +132,8 @@ def registerPage(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-
-			group = Group.objects.get(name='available')
-			user.groups.add(group)
-   
+			# group = Group.objects.get(name='available')
+			# user.groups.add(group)
 			messages.success(request, 'Account was created for ' + username)
 
 			return redirect('profiles:login')
@@ -223,7 +222,8 @@ class AvailableProfileListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        # user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Relationship.objects.all()
         rel_s = Relationship.objects.all()
@@ -251,7 +251,8 @@ class WaitingProfilesListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        # user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Relationship.objects.filter(sender=profile)
         rel_s = Relationship.objects.filter(receiver=profile)
@@ -279,7 +280,8 @@ class AcceptedProfilesListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        # user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Relationship.objects.filter(sender=profile)
         rel_s = Relationship.objects.filter(receiver=profile)
@@ -303,7 +305,8 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        # user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Relationship.objects.filter(sender=profile)
         rel_s = Relationship.objects.filter(receiver=profile)
@@ -315,8 +318,6 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
             rel_sender.append(item.sender.user)
         context["rel_receiver"] = rel_receiver
         context["rel_sender"] = rel_sender
-        # context['posts'] = self.get_object().get_all_authors_posts()
-        # context['len_posts'] = True if len(self.get_object().get_all_authors_posts()) > 0 else False
         return context   
     
     

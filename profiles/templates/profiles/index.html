@@ -97,6 +97,8 @@
         {{ request.user|capfirst }}
         </a>
         <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'profiles:my-profile-view' %}">My Profile</a>
+          <a class="dropdown-item" href="{% url 'profiles:ChangePasswordView' %}">Password</a>
           {% if user.is_staff%}
           <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
           {% endif %}
@@ -183,6 +185,8 @@
             {{ request.user|capfirst }}
             </a>
             <div class="dropdown-menu dropdown-primary mr-lg-5 mr-md-5" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'profiles:my-profile-view' %}">My Profile</a>
+              <a class="dropdown-item" href="{% url 'profiles:ChangePasswordView' %}">Password</a>
                {% if user.is_staff%}
                 <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
                 {% endif %}
@@ -450,6 +454,35 @@
       </div>
     </section><!-- End Contact Us Section -->
 
+  
+    <div class="section-title" data-aos="fade-up">
+    <footer class="mainfooter">
+
+      <div class="left">
+        <a href='http://www.sfi4.com/19023591/FREE'><img src='https://sfimg.csidn.com/SFIBanners/banner569.png'> </a>                
+      </div>
+    
+      <div class="left">
+        <a href='http://www.sfi4.com/19023591/FREE'><img src='https://sfimg.csidn.com/SFIBanners/banner569.png'> </a>                
+      </div>
+
+      <div class="left">
+        <a href='http://www.sfi4.com/19023591/FREE'><img src='https://sfimg.csidn.com/SFIBanners/banner569.png'> </a>                
+      </div>
+
+      
+      <!-- <div class="center">
+        <a href='http://www.sfi4.com/19023591/FREE'><img src="{% static 'images/together.png' %}"alt="no image"> </a> 
+      </div>
+    
+      <div class="right">
+        <a href='http://www.sfi4.com/19023591/FREE'><img src='https://sfimg.csidn.com/SFIBanners/banner569.png'> </a>       
+      </div>   -->
+    
+      </footer>
+      </div>
+  
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -519,6 +552,8 @@
               <a href=""><i class="icofont-facebook"></i></a>
               <a href=""><i class="icofont-instagram"></i></a>
               <a href=""><i class="icofont-youtube"></i></a>
+
+              
             </div>
           </div>
 
@@ -526,15 +561,27 @@
       </div>
     </div>
 
+  
+
     <div class="container py-4 copyrightdiv">
       <div class="copyright">
         &copy; <strong><span>Remarkable</span></strong>. All Rights Reserved Designed by <a href="#">VX</a>
       </div>
-      <!-- <div class="credits"></div>
-        Designed by <a href="#"> XO</a>
-      </div> -->
+
     </div>
   </footer><!-- End Footer -->
+
+
+  <!-- <section class="footer">    
+  <a href='http://www.sfi4.com/19023591/FREE'><img src='https://sfimg.csidn.com/SFIBanners/banner569.png' border='0'style=" height:30px; width:100%;"> </a>
+</section> -->
+
+            
+
+
+    <!-- Footer-->
+
+
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

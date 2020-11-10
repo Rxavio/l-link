@@ -1,3 +1,8 @@
+:root {
+  --mainSpacing: 0.1rem;
+  --mainTransition: all .5s ease;
+  }
+
 .col-md-12 input{
     width: 100%;
     margin: 0 0 20px;
@@ -308,10 +313,86 @@ h2.title{
   -o-border-radius: 5px;
 }
 
+  /* Footer start */
+  .mainfooter{
+    background: #ffffff;
+    width: 100%;
+    height: 30px;
+    /* margin-bottom: -7px; */
+    /* display: inline-block; */
+    margin: auto;
 
+   
+  }
+  .mainfooter .left,
+  .mainfooter .center,
+  .mainfooter .right
+  {
+    float: left;
+    
+  }
+  
+  .mainfooter .left{
+    width: 33%;
+    padding-left: 2px;
+    
+}
 
+  .mainfooter .center{
+    width: 30%;
+  }
+  
+  .mainfooter .right{
+    /* float: left; */
+    width: 30%;
+  }
+  
+  .mainfooter .left img{
+    margin-left: 5px;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
 
-
-
-
+  .mainfooter .center img{
+    /* height: auto;
+    width: 100%;
+ */
+    display: none;
+}
+  
+  
+  .mainfooter .right img{
+    /* margin-left: 5px;
+    height: 100%;
+    width: 100%;
+   */
+    display: none;
+}  
+ 
+  @media only screen and (max-width: 880px) {
+    
+    .mainfooter{
+      width: 100%;
+    }
+  
+    .mainfooter .right{
+    width: 100%;
+     margin-top: 2px;
+    }
+    .mainfooter .left{
+      width: 100%;
+      margin-top: 2px;
+  
+    }
+    .mainfooter .center{
+      width: 100%;
+      margin-top: 2px;
+    }
+    }
+  
   

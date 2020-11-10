@@ -107,7 +107,7 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     nationalid= models.CharField(max_length=16, blank=True)
     telephone= models.CharField(max_length=10,  blank=False, unique=True,null= True)
-    age= models.CharField(max_length=2, blank=False)
+    age= models.CharField(max_length=2, blank=True)
     gender = models.CharField(max_length=12, default="Your gender", choices=GENDER_CHOICES)
     birth_date = models.DateField(null=True,blank=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
